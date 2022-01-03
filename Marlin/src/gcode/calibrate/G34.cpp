@@ -115,8 +115,8 @@ void GcodeSuite::G34() {
   do_blocking_move_to_z(zgrind, MMM_TO_MMS(GANTRY_CALIBRATION_FEEDRATE));
 
   // Back off end plate, back to normal motion range
-  if (DEBUGGING(LEVELING)) DEBUG_ECHOLNPGM("Z Backoff");
-  do_blocking_move_to_z(zpounce, MMM_TO_MMS(GANTRY_CALIBRATION_FEEDRATE));
+  //if (DEBUGGING(LEVELING)) DEBUG_ECHOLNPGM("Z Backoff");
+  //do_blocking_move_to_z(zpounce, MMM_TO_MMS(GANTRY_CALIBRATION_FEEDRATE));
 
   #if _REDUCE_CURRENT
     // Reset current to original values
