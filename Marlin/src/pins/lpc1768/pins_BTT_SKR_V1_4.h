@@ -153,6 +153,7 @@
   #define E1_CS_PIN                        P1_01
 #endif
 
+#define TEMP_0_PIN                      P0_26_A3
 #define TEMP_1_PIN                      P0_23_A0  // A0 (T0) - (67) - TEMP_1_PIN
 #define TEMP_BED_PIN                    P0_25_A2  // A2 (T2) - (69) - TEMP_BED_PIN
 
@@ -233,6 +234,20 @@
  *               EXP2                                              EXP1
  */
 #if HAS_WIRED_LCD
+
+  #if ENABLED(DWIN_CREALITY_LCD)
+    // RET6 DWIN ENCODER LCD
+    #define BTN_ENC                           P1_20
+    #define BTN_EN1                           P1_23
+    #define BTN_EN2                           P1_22
+
+    #ifndef BEEPER_PIN
+      #define BEEPER_PIN                      P1_21
+      #undef SPEAKER
+    #endif
+  #endif
+
+
   #if ENABLED(ANET_FULL_GRAPHICS_LCD)
 
     #define LCD_PINS_RS                    P1_23
