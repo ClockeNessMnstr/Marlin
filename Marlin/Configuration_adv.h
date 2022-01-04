@@ -2946,9 +2946,9 @@
    */
   #define STEALTHCHOP_XY
   #define STEALTHCHOP_Z
-  #define STEALTHCHOP_I
-  #define STEALTHCHOP_J
-  #define STEALTHCHOP_K
+  //#define STEALTHCHOP_I
+  //#define STEALTHCHOP_J
+  //#define STEALTHCHOP_K
   #define STEALTHCHOP_E
 
   /**
@@ -4089,8 +4089,8 @@
 
   //#define GANTRY_CALIBRATION_SAFE_POSITION XY_CENTER // Safe position for nozzle
   //#define GANTRY_CALIBRATION_XY_PARK_FEEDRATE 3000  // XY Park Feedrate - MMM
-  #define GANTRY_CALIBRATION_COMMANDS_PRE   "G1 Z490 F1800"
-  #define GANTRY_CALIBRATION_COMMANDS_POST  "G1 Z25 F900\nG28 Z"     // G28 highly recommended to ensure an accurate position
+  #define GANTRY_CALIBRATION_COMMANDS_PRE   "G1 Z490 F600"
+  #define GANTRY_CALIBRATION_COMMANDS_POST  "G1 Z25 F600\nG28 Z"     // G28 highly recommended to ensure an accurate position
 #endif
 
 /**
