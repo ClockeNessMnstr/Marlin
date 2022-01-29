@@ -844,10 +844,10 @@
 #define HOMING_BUMP_MM      { 5, 5, 2 }       // (mm) Backoff from endstops after first bump
 #define HOMING_BUMP_DIVISOR { 2, 2, 4 }       // Re-Bump Speed Divisor (Divides the Homing Feedrate)
 
-//#define HOMING_BACKOFF_POST_MM { 2, 2, 2 }  // (mm) Backoff from endstops after homing
+#define HOMING_BACKOFF_POST_MM { 20, 50, 10 }  // (mm) Backoff from endstops after homing
 
 //#define QUICK_HOME                          // If G28 contains XY do a diagonal move first
-//#define HOME_Y_BEFORE_X                     // If G28 contains XY home Y before X
+#define HOME_Y_BEFORE_X                     // If G28 contains XY home Y before X
 //#define HOME_Z_FIRST                        // Home Z first. Requires a Z-MIN endstop (not a probe).
 //#define CODEPENDENT_XY_HOMING               // If X/Y can't home without homing Y/X first
 
@@ -1989,7 +1989,7 @@
  *
  * See https://marlinfw.org/docs/features/lin_advance.html for full instructions.
  */
-#define LIN_ADVANCE
+//#define LIN_ADVANCE
 #if ENABLED(LIN_ADVANCE)
   //#define EXTRA_LIN_ADVANCE_K // Enable for second linear advance constants
   #define LIN_ADVANCE_K 0.00    // Unit: mm compression per 1mm/s extruder speed
@@ -2041,10 +2041,10 @@
 
 #if EITHER(MESH_BED_LEVELING, AUTO_BED_LEVELING_UBL)
   // Override the mesh area if the automatic (max) area is too large
-  #define MESH_MIN_X 15
-  #define MESH_MIN_Y 0
-  #define MESH_MAX_X X_BED_SIZE - 15
-  #define MESH_MAX_Y Y_BED_SIZE - 30
+  #define MESH_MIN_X 35
+  #define MESH_MIN_Y 35
+  #define MESH_MAX_X X_BED_SIZE - 35
+  #define MESH_MAX_Y Y_BED_SIZE - 35
 #endif
 
 #if BOTH(AUTO_BED_LEVELING_UBL, EEPROM_SETTINGS)
@@ -2684,8 +2684,8 @@
   #define INTERPOLATE      true
 
   #if AXIS_IS_TMC(X)
-    #define X_CURRENT       650        // (mA) RMS current. Multiply by 1.414 for peak current.
-    #define X_CURRENT_HOME  X_CURRENT  // (mA) RMS current for sensorless homing
+    #define X_CURRENT       1000        // (mA) RMS current. Multiply by 1.414 for peak current.
+    #define X_CURRENT_HOME  650  // (mA) RMS current for sensorless homing
     #define X_MICROSTEPS     16        // 0..256
     #define X_RSENSE          0.11
     #define X_CHAIN_POS      -1        // -1..0: Not chained. 1: MCU MOSI connected. 2: Next in chain, ...
@@ -2704,8 +2704,8 @@
   #endif
 
   #if AXIS_IS_TMC(Y)
-    #define Y_CURRENT       650
-    #define Y_CURRENT_HOME  Y_CURRENT
+    #define Y_CURRENT       1000
+    #define Y_CURRENT_HOME  650
     #define Y_MICROSTEPS     16
     #define Y_RSENSE          0.11
     #define Y_CHAIN_POS      -1
@@ -2724,8 +2724,8 @@
   #endif
 
   #if AXIS_IS_TMC(Z)
-    #define Z_CURRENT       850
-    #define Z_CURRENT_HOME  Z_CURRENT
+    #define Z_CURRENT       1000
+    #define Z_CURRENT_HOME  850
     #define Z_MICROSTEPS     16
     #define Z_RSENSE          0.11
     #define Z_CHAIN_POS      -1
@@ -2949,7 +2949,7 @@
   //#define STEALTHCHOP_I
   //#define STEALTHCHOP_J
   //#define STEALTHCHOP_K
-  #define STEALTHCHOP_E
+  //#define STEALTHCHOP_E
 
   /**
    * Optimize spreadCycle chopper parameters by using predefined parameter sets
@@ -4089,7 +4089,7 @@
 
   //#define GANTRY_CALIBRATION_SAFE_POSITION XY_CENTER // Safe position for nozzle
   //#define GANTRY_CALIBRATION_XY_PARK_FEEDRATE 3000  // XY Park Feedrate - MMM
-  #define GANTRY_CALIBRATION_COMMANDS_PRE   "G1 Z490 F600"
+  #define GANTRY_CALIBRATION_COMMANDS_PRE   "G1 Z480 F600"
   #define GANTRY_CALIBRATION_COMMANDS_POST  "G1 Z25 F600\nG28 Z"     // G28 highly recommended to ensure an accurate position
 #endif
 
